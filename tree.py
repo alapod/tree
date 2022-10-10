@@ -25,9 +25,9 @@ class TreeStore:
             return []
 
     def get_all_parents(self, node_id):
-        parent_id = self.get_item(node_id)["parent"]
+        parent = self.get_item(node_id)["parent"]
         parents = []
-        while parent_id != "root":
-            parents.append(self.get_item(parent_id))
-            parent_id = self.get_item(parent_id)["parent"]
+        while parent != "root":
+            parents.append(self.get_item(parent))
+            parent = self.get_item(parent)["parent"]
         return parents
